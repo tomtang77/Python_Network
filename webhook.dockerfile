@@ -1,12 +1,14 @@
-FROM python
+FROM centos:7
 MAINTAINER Tom
 
 WORKDIR /app
 ADD . /app
 
+RUN yum -y install epel-release
+RUN yum -y install python3
+RUN pip3 install --upgrade pip
 RUN pip3 install requests flask
 
-#RUN yum install -y wget
 
 EXPOSE 5001
 
